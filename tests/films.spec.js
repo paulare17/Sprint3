@@ -97,158 +97,158 @@ describe('Function "getMoviesFromDirector"', () => {
 
 });
 
-// // Exercise 3
-// describe('Function "moviesAverageOfDirector"', () => {
-//   it('should be declared', () => {
-//     expect(typeof moviesAverageOfDirector).toBe('function');
-//   });
+// Exercise 3
+describe('Function "moviesAverageOfDirector"', () => {
+  it('should be declared', () => {
+    expect(typeof moviesAverageOfDirector).toBe('function');
+  });
 
-//   it('should return a number', () => {
-//     expect(typeof moviesAverageOfDirector(movies, 'Stanley Kubrick')).toBe('number');
-//   });
+  it('should return a number', () => {
+    expect(typeof moviesAverageOfDirector(movies, 'Stanley Kubrick')).toBe('number');
+  });
 
-//   it('should be different from NaN', () => {
-//     expect(moviesAverageOfDirector(movies, 'Stanley Kubrick')).not.toBeNaN();
-//   });
+  it('should be different from NaN', () => {
+    expect(moviesAverageOfDirector(movies, 'Stanley Kubrick')).not.toBeNaN();
+  });
 
-//   it(' should return the average score of movies selecting only the director films. With 2 decimals! ', () => {
-//     expect(moviesAverageOfDirector([
-//       {
-//         title: 'Paths of Glory',
-//         year: 1957,
-//         director: 'Stanley Kubrick',
-//         duration: '1h 28min',
-//         genre: ['Drama', 'War'],
-//         score: 8.4
-//       },
-//       {
-//         title: 'Django Unchained',
-//         year: 2012,
-//         director: 'Quentin Tarantino',
-//         duration: '2h 45min',
-//         genre: ['Drama', 'Western'],
-//         score: 8.4
-//       },
-//       {
-//         title: 'Pulp Fiction',
-//         year: 1994,
-//         director: 'Quentin Tarantino',
-//         duration: '2h 34min',
-//         genre: ['Crime', 'Drama'],
-//         score: 8.9
-//       }
-//     ], 'Quentin Tarantino')).toBe(8.65);
-//   });
+  it(' should return the average score of movies selecting only the director films. With 2 decimals! ', () => {
+    expect(moviesAverageOfDirector([
+      {
+        title: 'Paths of Glory',
+        year: 1957,
+        director: 'Stanley Kubrick',
+        duration: '1h 28min',
+        genre: ['Drama', 'War'],
+        score: 8.4
+      },
+      {
+        title: 'Django Unchained',
+        year: 2012,
+        director: 'Quentin Tarantino',
+        duration: '2h 45min',
+        genre: ['Drama', 'Western'],
+        score: 8.4
+      },
+      {
+        title: 'Pulp Fiction',
+        year: 1994,
+        director: 'Quentin Tarantino',
+        duration: '2h 34min',
+        genre: ['Crime', 'Drama'],
+        score: 8.9
+      }
+    ], 'Quentin Tarantino')).toBe(8.65);
+  });
 
-// });
+});
 
-// // Exercise 4
-// describe('Function "orderAlphabetically"', () => {
-//   it('should be declared', () => {
-//     expect(typeof orderAlphabetically).toBe('function');
-//   });
+// Exercise 4
+describe('Function "orderAlphabetically"', () => {
+  it('should be declared', () => {
+    expect(typeof orderAlphabetically).toBe('function');
+  });
 
-//   it('should return an array', () => {
-//     expect(typeof orderAlphabetically([])).toBe('object');
-//   });
+  it('should return an array', () => {
+    expect(typeof orderAlphabetically([])).toBe('object');
+  });
 
-//   it('should not mutate the original array', () => {
-//     const arr = [{ title: 'xyz' }, { title: 'abc' }];
-//     orderAlphabetically(arr);
-//     expect(arr[0].title).toEqual('xyz');
-//   });
+  it('should not mutate the original array', () => {
+    const arr = [{ title: 'xyz' }, { title: 'abc' }];
+    orderAlphabetically(arr);
+    expect(arr[0].title).toEqual('xyz');
+  });
 
-//   it('should only return the title of the movies, each value should be a string', () => {
-//     expect(typeof orderAlphabetically([{ title: 'aab' }])[0]).toBe('string');
-//   });
+  it('should only return the title of the movies, each value should be a string', () => {
+    expect(typeof orderAlphabetically([{ title: 'aab' }])[0]).toBe('string');
+  });
 
-//   it('should return all of items when the array passed has fewer than 20 items', () => {
-//     const moviesArr = [{ title: 'aab' }, { title: 'bab' }, { title: 'acb' }];
-//     expect(orderAlphabetically(moviesArr)).toHaveLength(3);
-//   });
+  it('should return all of items when the array passed has fewer than 20 items', () => {
+    const moviesArr = [{ title: 'aab' }, { title: 'bab' }, { title: 'acb' }];
+    expect(orderAlphabetically(moviesArr)).toHaveLength(3);
+  });
 
-//   it('should order them alphabetically.', () => {
-//     const moviesArr = [
-//       { title: 'aab' },
-//       { title: 'aaa' },
-//       { title: 'abc' },
-//       { title: 'acb' },
-//       { title: 'abb' }
-//     ];
+  it('should order them alphabetically.', () => {
+    const moviesArr = [
+      { title: 'aab' },
+      { title: 'aaa' },
+      { title: 'abc' },
+      { title: 'acb' },
+      { title: 'abb' }
+    ];
 
-//     expect(orderAlphabetically(moviesArr)).toEqual([
-//       'aaa',
-//       'aab',
-//       'abb',
-//       'abc',
-//       'acb'
-//     ]);
-//   });
+    expect(orderAlphabetically(moviesArr)).toEqual([
+      'aaa',
+      'aab',
+      'abb',
+      'abc',
+      'acb'
+    ]);
+  });
 
-//   it('should return the top 20 after ordering them alphabetically.', () => {
-//     const moviesArr = [
-//       { title: 'aab' },
-//       { title: 'bab' },
-//       { title: 'acb' },
-//       { title: 'aaa' },
-//       { title: 'bbb' },
-//       { title: 'anc' },
-//       { title: 'kns' },
-//       { title: 'zds' },
-//       { title: 'pow' },
-//       { title: 'gda' },
-//       { title: 'res' },
-//       { title: 'ter' },
-//       { title: 'bca' },
-//       { title: 'ccc' },
-//       { title: 'bbt' },
-//       { title: 'qas' },
-//       { title: 'kmn' },
-//       { title: 'frt' },
-//       { title: 'afb' },
-//       { title: 'agb' },
-//       { title: 'apo' },
-//       { title: 'poa' },
-//       { title: 'cdf' },
-//       { title: 'sea' },
-//       { title: 'lom' },
-//       { title: 'acs' },
-//       { title: 'qas' },
-//       { title: 'mns' },
-//       { title: 'bvc' },
-//       { title: 'gha' },
-//       { title: 'lkj' },
-//       { title: 'era' },
-//       { title: 'ert' },
-//       { title: 'tex' },
-//       { title: 'zas' },
-//       { title: 'pol' }
-//     ];
+  it('should return the top 20 after ordering them alphabetically.', () => {
+    const moviesArr = [
+      { title: 'aab' },
+      { title: 'bab' },
+      { title: 'acb' },
+      { title: 'aaa' },
+      { title: 'bbb' },
+      { title: 'anc' },
+      { title: 'kns' },
+      { title: 'zds' },
+      { title: 'pow' },
+      { title: 'gda' },
+      { title: 'res' },
+      { title: 'ter' },
+      { title: 'bca' },
+      { title: 'ccc' },
+      { title: 'bbt' },
+      { title: 'qas' },
+      { title: 'kmn' },
+      { title: 'frt' },
+      { title: 'afb' },
+      { title: 'agb' },
+      { title: 'apo' },
+      { title: 'poa' },
+      { title: 'cdf' },
+      { title: 'sea' },
+      { title: 'lom' },
+      { title: 'acs' },
+      { title: 'qas' },
+      { title: 'mns' },
+      { title: 'bvc' },
+      { title: 'gha' },
+      { title: 'lkj' },
+      { title: 'era' },
+      { title: 'ert' },
+      { title: 'tex' },
+      { title: 'zas' },
+      { title: 'pol' }
+    ];
 
-//     expect(orderAlphabetically(moviesArr)).toEqual([
-//       'aaa',
-//       'aab',
-//       'acb',
-//       'acs',
-//       'afb',
-//       'agb',
-//       'anc',
-//       'apo',
-//       'bab',
-//       'bbb',
-//       'bbt',
-//       'bca',
-//       'bvc',
-//       'ccc',
-//       'cdf',
-//       'era',
-//       'ert',
-//       'frt',
-//       'gda',
-//       'gha'
-//     ]);
-//   });
-// });
+    expect(orderAlphabetically(moviesArr)).toEqual([
+      'aaa',
+      'aab',
+      'acb',
+      'acs',
+      'afb',
+      'agb',
+      'anc',
+      'apo',
+      'bab',
+      'bbb',
+      'bbt',
+      'bca',
+      'bvc',
+      'ccc',
+      'cdf',
+      'era',
+      'ert',
+      'frt',
+      'gda',
+      'gha'
+    ]);
+  });
+});
 
 // // Exercise 5
 // describe('Function "orderByYear"', () => {
