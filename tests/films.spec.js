@@ -250,53 +250,95 @@ describe('Function "orderAlphabetically"', () => {
   });
 });
 
-// // Exercise 5
-// describe('Function "orderByYear"', () => {
-//   it('should be declared', () => {
-//     expect(typeof orderByYear).toBe('function');
-//   });
+// Exercise 5
+describe('Function "orderByYear"', () => {
+  it('should be defined', () => {
+    expect(typeof orderByYear).toBe('function');
+  });
 
-//   it('should return an array', () => {
-//     expect(typeof orderByYear(movies)).toBe('object');
-//   });
+  it('should return an array', () => {
+    expect(typeof orderByYear(movies)).toBe('object');
+  });
 
-//   it('should return a new array', () => {
-//     const arr = [];
-//     expect(orderByYear(arr)).not.toBe(arr);
-//   });
+  it('should return a new array', () => {
+    const arr = [];
+    expect(orderByYear(arr)).not.toBe(arr);
+  });
 
-//   it('should return the element in a single element array', () => {
-//     expect(orderByYear([{ year: 1982 }])).toEqual([{ year: 1982 }]);
-//   });
+  it('should return the element in a single element array', () => {
+    expect(orderByYear([{ year: 1982 }])).toEqual([{ year: 1982 }]);
+  });
 
-//   it('should return the new array in ascending order', () => {
-//     expect(
-//       orderByYear([{ year: 2002 }, { year: 1982 }, { year: 1995 }])
-//     ).toEqual([{ year: 1982 }, { year: 1995 }, { year: 2002 }]);
-//   });
+  it('should return the new array in ascending order', () => {
+    expect(
+      orderByYear([{ year: 2002 }, { year: 1982 }, { year: 1995 }])
+    ).toEqual([{ year: 1982 }, { year: 1995 }, { year: 2002 }]);
+  });
 
-//   it('should order movies with the same year by their title, alphabetically', () => {
-//     expect(
-//       orderByYear([
-//         { title: 'abc', year: 2002 },
-//         { title: 'bac', year: 1982 },
-//         { title: 'aab', year: 1982 }
-//       ])
-//     ).toEqual([
-//       { title: 'aab', year: 1982 },
-//       { title: 'bac', year: 1982 },
-//       { title: 'abc', year: 2002 }
-//     ]);
-//   });
-// });
+  it('should order movies with the same year by their title, alphabetically', () => {
+    expect(
+      orderByYear([
+        { title: 'abc', year: 2002 },
+        { title: 'bac', year: 1982 },
+        { title: 'aab', year: 1982 }
+      ])
+    ).toEqual([
+      { title: 'aab', year: 1982 },
+      { title: 'bac', year: 1982 },
+      { title: 'abc', year: 2002 }
+    ]);
+  });
+});
 
-// // Exercise 6
-// // YOUR CODE HERE. Test moviesAverageByCategory()
-// describe('Function "moviesAverageByCategory"', () => {
-//   it('ADD YOUR CODE IN films.spec.js file', () => {
-//     expect(typeof hoursToMinutes).toBe('coffee');
-//   });
-// });
+// Exercise 6
+// YOUR CODE HERE. Test moviesAverageByCategory()
+describe('Function "moviesAverageByCategory"', () => {
+  it('should be defined', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
+  });
+
+  it('should be a number', () => {
+    expect(typeof moviesAverageByCategory(movies, "Action")).toBe('number');
+  });
+
+  it('should be different from NaN', () => {
+    expect(moviesAverageByCategory(movies, "Action")).not.toBeNaN();
+  });
+
+  it('should calculate the correct average for a genre with multiple movies', () => {
+    expect(moviesAverageByCategory([
+      {
+        title: 'Inception',
+        year: 2010,
+        director: 'Christopher Nolan',
+        duration: '2h 28min',
+        genre: ['Action', 'Adventure', 'Sci-Fi', 'Thriller'],
+        score: 8.8
+      },
+      {
+        title: 'The Dark Knight',
+        year: 2008,
+        director: 'Christopher Nolan',
+        duration: '2h 32min',
+        genre: ['Action', 'Crime', 'Drama', 'Thriller'],
+        score: 9
+      },
+      {
+        title: 'Cidade de Deus',
+        year: 2002,
+        director: 'Fernando Meirelles',
+        duration: '2h 10min',
+        genre: ['Crime', 'Drama'],
+        score: 8.7
+      },
+    ], 'Action')).toBe(8.9);
+  });
+
+  it('should be only two decimals', () => {
+   const avg =  moviesAverageByCategory(movies, 'Drama');
+    expect(avg).toBe(Number(avg.toFixed(2)));
+  });
+});
 
 // // Exercise 7
 // describe('Function "hoursToMinutes"', () => {

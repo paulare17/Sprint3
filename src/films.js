@@ -28,13 +28,24 @@ function orderAlphabetically(array) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
-
+function orderByYear(array) {
+  let auxArray = [...array]; // Creem una còpia de l'array original
+  auxArray.sort((a, b) => {
+    // ordenar anys
+    if (a.year !== b.year) {
+      return a.year - b.year;
+    } return a.title.localeCompare(b.title);
+    // ordenar per títol
+  });
+  return auxArray;
+  
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
-
+function moviesAverageByCategory(array, genre) {
+  let searchForGenre = array.filter(movie => movie.genre.includes(genre));
+  let averageGenre = searchForGenre.reduce((total, scores) => total + scores.score, 0) /searchForGenre.length;
+  return parseFloat(averageGenre.toFixed(2));
 }
 
 // Exercise 7: Modify the duration of movies to minutes
